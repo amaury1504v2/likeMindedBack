@@ -1,7 +1,7 @@
 {
-  "name": "siteelect",
+  "name": "likemindedback",
   "version": "1.0.0",
-  "description": "site IIM elect",
+  "description": "LikeMinded Back",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jelaip/SiteElect.git"
+    "url": "git+https://github.com/amaury1504v2/likeMindedBack.git"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jelaip/SiteElect/issues"
-  },
-  "homepage": "https://github.com/jelaip/SiteElect#readme",
+  "homepage": "https://github.com/amaury1504v2/likeMindedFront#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^2.4.3",
