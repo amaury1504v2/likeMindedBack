@@ -1,2 +1,3 @@
-# SiteElect
-site IIM elect
+# LikeMinded Back
+
+npm start
