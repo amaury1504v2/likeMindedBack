@@ -1,6 +1,7 @@
 const http = require('http')
 const app = require('./app')
 const socketIo = require('socket.io')
+const messageModel = require('./models/message')
 
 const normalizePort = val => {
     const port = parseInt(val,10)
@@ -58,12 +59,12 @@ const io = socketIo(server, {
         //create msg
         //enregistre
 
-        const message = new Message({
-            message:req.body.email
+        const message = new messageModel({
+            message: msg
         })  
         message.save()
-            .then(()=> res.status(201).json({message: 'create message'}))
-            .catch(error=> res.status(400).json({error}))
+            .then(()=> console.log('create message'))
+            .catch(error=> console.log('error'))
 
         io.emit('returnMessage', msg)
     })
