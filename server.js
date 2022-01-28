@@ -54,6 +54,17 @@ const io = socketIo(server, {
     socket.on("sendMessage", (msg) => {
         console.log(msg);
         //socket.emit('returnMessage', msg)
+        
+        //create msg
+        //enregistre
+
+        const message = new Message({
+            message:req.body.email
+        })  
+        message.save()
+            .then(()=> res.status(201).json({message: 'create message'}))
+            .catch(error=> res.status(400).json({error}))
+
         io.emit('returnMessage', msg)
     })
     });
