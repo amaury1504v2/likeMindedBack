@@ -1,5 +1,6 @@
 const http = require('http')
 const app = require('./app')
+const socketIo = require('socket.io')
 
 const normalizePort = val => {
     const port = parseInt(val,10)
@@ -7,7 +8,7 @@ const normalizePort = val => {
     if(port>=0){return port;}
     return false
 }
-const port = normalizePort(process.env.PORT||3000)
+const port = normalizePort(process.env.PORT||3001)
 app.set('port',port)
 
 const errorHandler = error =>{
@@ -39,6 +40,24 @@ server.on('listening', ()=>{
     const bind = typeof address ==='string' ? 'pipe' + address : 'port: ' +port
     console.log(' ecoute '+ bind)
 })
+
+const io = socketIo(server, {
+        cors: {
+            origin: '*',
+        }
+    })
+    io.on("connection", (socket) => {
+    console.log("New client connected");
+    socket.on("disconnect", () => { //reception d'un évènement
+        console.log("Client disconnected");
+    });
+    socket.on("sendMessage", (msg) => {
+        console.log(msg);
+        //socket.emit('returnMessage', msg)
+        io.emit('returnMessage', msg)
+    })
+    });
+
 
 server.listen(port)
 

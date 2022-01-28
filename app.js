@@ -4,13 +4,15 @@ const mongoose = require('mongoose')
 const port = 3000
 const userRoutes = require('./routes/user')
 const path = require('path')
-mongoose.connect('',
+mongoose.connect('mongodb+srv://ampierro:test123456@cluster0.duv14.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
 {
     useNewUrlParser: true,
     useUnifiedTopology:true
 })
 .then(()=> console.log("db valid"))
 .catch(()=> console.log("db error"))
+
+
 
 app.use((req,res,next)=> {
     res.setHeader('Access-Control-Allow-Origin','*')
@@ -24,5 +26,7 @@ app.use(express.urlencoded({
     extended :true
 }))
 app.use('/user',userRoutes)
+
+
 
 module.exports = app

@@ -22,7 +22,9 @@ export default class Signup extends Component {
         
 
     axios.post('http://localhost:3000/user/signup', {email, password})
-      .then(res => console.log('user created'));
+      .then(res => { 
+          console.log('user created')
+        });
     }
 
     render() {
