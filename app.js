@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const port = 3000
 const userRoutes = require('./routes/user')
 const path = require('path')
-mongoose.connect('mongodb+srv://likeminded:mdp_likeminded_123@cluster0.bansf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://likeminded:mdp_likeminded_123@cluster0.bansf.mongodb.net/likeminded?retryWrites=true&w=majority',
 {
     useNewUrlParser: true,
     useUnifiedTopology:true
